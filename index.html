@@ -9,185 +9,8 @@
         <link rel="stylesheet" href="css/style.css"/>
         <link rel="stylesheet" href="css/media.css"/>
         <link rel="shortcut icon" href="img/main/favicon.ico" type="image/x-icon"/>
-        
         <script src="js/jquery-1.8.3.min.js"></script>
-        
-        
-
-        <script>
-                // Зацикленный круг
-                document.addEventListener("DOMContentLoaded", () => {
-                var Emblem = {
-                    init: function (el, str) {
-                        var element = document.querySelector(el);
-                        var text = str ? str : element.innerHTML;
-                        element.innerHTML = "";
-                        for (var i = 0; i < text.length; i++) {
-                            var letter = text[i];
-                            var span = document.createElement("span");
-                            var node = document.createTextNode(letter);
-                            var r = (360 / text.length) * i;
-                            var x = (Math.PI / text.length).toFixed(0) * i;
-
-                            // Условие для второй буквы "M" в слове "COMISSIONS"
-                            if (i === 2) {
-                                // Индекс 10 соответствует второй "M"
-                                x -= 6; // Добавляем 10px смещения по оси X
-                            }
-                            if (i === 7) {
-                                // Индекс 10 соответствует второй "M"
-                                x += 5; // Добавляем 10px смещения по оси X
-                            }
-                            if (i === 8) {
-                                // Индекс 10 соответствует второй "M"
-                                x += 9; // Добавляем 10px смещения по оси X
-                            }
-                            if (i === 20) {
-                                // Индекс 10 соответствует второй "M"
-                                x -= 6; // Добавляем 10px смещения по оси X
-                            }
-
-                            // Условие для второй буквы "M" в слове "COMISSIONS"
-                            if (i === 25) {
-                                // Индекс 10 соответствует второй "M"
-                                x += 5; // Добавляем 10px смещения по оси X
-                            }
-                            if (i === 26) {
-                                // Индекс 10 соответствует второй "M"
-                                x += 9; // Добавляем 10px смещения по оси X
-                            }
-
-                            if (i === 9) {
-                                // Индекс 10 соответствует второй "M"
-                                x += 7; // Добавляем 10px смещения по оси X
-                            }
-
-                            if (i === 27) {
-                                // Индекс 10 соответствует второй "M"
-                                x += 7; // Добавляем 10px смещения по оси X
-                            }
-
-                            var y = (Math.PI / text.length).toFixed(0) * i;
-                            span.appendChild(node);
-                            span.style.webkitTransform = "rotateZ(" + r + "deg) translate3d(" + x + "px," + y + "px,0)";
-                            span.style.transform = "rotateZ(" + r + "deg) translate3d(" + x + "px," + y + "px,0)";
-                            element.appendChild(span);
-                        }
-                    },
-                };
-
-                Emblem.init(".emblem");
-
-                // Зацикленный круг
-            });
-        </script>
         <title>Afflex</title>
-        <style>
-            .open {
-                display: flex !important;
-            }
-
-            .close {
-                display: none !important;
-            }
-
-            .fade {
-                display: none;
-            }
-
-            .burger {
-                display: none;
-                position: relative;
-                z-index: 9999;
-                align-items: center;
-                justify-content: flex-end;
-                width: 34px;
-                height: 22px;
-            }
-
-            .burger span {
-                height: 2px;
-                width: 34px;
-                transform: scale(1);
-                background-color: #000;
-            }
-
-            .burger::before,
-            .burger::after {
-                content: "";
-                position: absolute;
-                height: 2px;
-                width: 34px;
-                background-color: #000;
-                transition: all 0.3s ease 0s;
-            }
-
-            .burger::before {
-                top: 0;
-            }
-
-            .burger::after {
-                bottom: 0;
-            }
-
-            /* Добавляем класс active для анимации иконки бургера */
-            .burger.active span {
-                transform: scale(0);
-            }
-
-            .burger.active::before {
-                top: 50%;
-                transform: rotate(-45deg) translate(0, -50%);
-            }
-
-            .burger.active::after {
-                bottom: 50%;
-                transform: rotate(45deg) translate(0, 50%);
-            }
-
-            /* При разрешении экрана 480px и ниже, выводим на экран иконку бургера */
-            @media (max-width: 480px) {
-                .burger {
-                    display: flex;
-                }
-
-                .popup {
-                    display: none;
-                    position: fixed;
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                    z-index: 50;
-                    overflow-y: hidden;
-                    animation: burgerAnimation 1.4s;
-                }
-            }
-
-            @keyframes burgerAnimation {
-                from {
-                    opacity: 0;
-                }
-                to {
-                    opacity: 1;
-                }
-            }
-            .accordion:not(#accordion-6) .accordion__item:not(.accordion__item_show) .accordion__body {
-                max-height: 0;
-                overflow: hidden;
-                padding-bottom: 0;
-                opacity: 0;
-            }
-
-            @media (max-width: 480px) {
-                .accordion__item:not(.accordion__item_show) .accordion__body {
-                    max-height: 0;
-                    overflow: hidden;
-                    padding-bottom: 0;
-                    opacity: 0;
-                }
-            }
-        </style>
     </head>
 
     <body>
@@ -213,17 +36,11 @@
                     <a class="header__user-login" href="https://afflex.partner.alanbase.com/login">Login</a>
                     <a class="header__user-account" href="https://afflex.partner.alanbase.com/login">Create account</a>
                 </div>
-                <!-- <a href="#" class="header__burger burger open-popup">
-                <span></span>
-                <span></span>
-                <span></span>
-            </a> -->
                 <div class="burger">
                     <span></span>
                 </div>
             </div>
         </header>
-        <!-- <div class="popup-bg"> -->
         <div class="header__mob popup">
             <div class="container">
                 <div class="header__logo logo">
@@ -232,9 +49,6 @@
                             <use xlink:href="#logo"></use>
                         </svg>
                     </div>
-                    <!-- <svg width="26" height="26" class="close-popup">
-                <use xlink:href="#popup-close"></use>
-            </svg> -->
                 </div>
                 <nav class="header__nav">
                     <ul class="header__nav-list">
@@ -251,11 +65,9 @@
                 </div>
             </div>
         </div>
-        <!-- </div> -->
         <div class="video-bg">
             <video src="video/offer-bg.mp4" autoplay muted loop></video>
             <section class="offer">
-                <!-- <div class="effects"></div> -->
                 <div class="offer__container container">
                     <div class="offer__description">
                         <h1 class="offer__title">Generate high income by promoting {<span class="offer__title_pink">exclusive offers</span>}</h1>
@@ -320,44 +132,38 @@
             </div>
             <div class="transactions__animation svgContainer" id="svgContainer">
                 <svg id="run_text">
-  <path id="wavePath" d="M-117.958 198.12C35.0103 118.418 739.229 -47.5648 1071.94 91.2269C1389.65 215.019 1912.67 62.6332 1972.05 -0.953099" fill="transparent" stroke="transparent" stroke-width="2"></path>
-  <text class="text" y="40" font-size="32">
-    <textPath startoffset="2050" href=#wavePath>
-      HIGH COMISSIONS!
-    </textPath>
-  </text>
-  <image class="icon" href="img/transactions/star.svg" width="32" height="32" x="-140" y="-140" />
-  <text class="text" y="40" font-size="32">
-    <textPath startoffset="1600" href=#wavePath>
-      HIGH COMISSIONS!
-    </textPath>
-  </text>
-  <image class="icon" href="img/transactions/star.svg" width="32" height="32" x="0" y="0" />
-  <text class="text" y="40" font-size="32">
-    <textPath startoffset="1150" href=#wavePath>
-      HIGH COMISSIONS!
-    </textPath>
-  </text>
-  <image class="icon" href="img/transactions/star.svg" width="32" height="32" x="0" y="0" />
-  <text class="text" y="40" font-size="32">
-    <textPath startoffset="700" href=#wavePath>
-      HIGH COMISSIONS!
-    </textPath>
-  </text>
-  <image class="icon" href="img/transactions/star.svg" width="32" height="32" x="0" y="0" />
-  <text class="text" y="40" font-size="32">
-    <textPath startoffset="250" href=#wavePath>
-      HIGH COMISSIONS!
-    </textPath>
-  </text>
-  <image class="icon" href="img/transactions/star.svg" width="32" height="32" x="0" y="0" />
-  <!-- <text class="text" y="40" font-size="32">
-    <textPath startoffset="300" href=#wavePath>
-      HIGH COMISSIONS!
-    </textPath>
-  </text>
-  <image class="icon" href="img/transactions/star.svg" width="32" height="32" x="0" y="0" /> -->
-</svg>
+                  <path id="wavePath" d="M-117.958 198.12C35.0103 118.418 739.229 -47.5648 1071.94 91.2269C1389.65 215.019 1912.67 62.6332 1972.05 -0.953099" fill="transparent" stroke="transparent" stroke-width="2"></path>
+                  <text class="text" y="40" font-size="32">
+                    <textPath startoffset="2050" href=#wavePath>
+                      HIGH COMISSIONS!
+                    </textPath>
+                  </text>
+                  <image class="icon" href="img/transactions/star.svg" width="32" height="32" x="-140" y="-140" />
+                  <text class="text" y="40" font-size="32">
+                    <textPath startoffset="1600" href=#wavePath>
+                      HIGH COMISSIONS!
+                    </textPath>
+                  </text>
+                  <image class="icon" href="img/transactions/star.svg" width="32" height="32" x="0" y="0" />
+                  <text class="text" y="40" font-size="32">
+                    <textPath startoffset="1150" href=#wavePath>
+                      HIGH COMISSIONS!
+                    </textPath>
+                  </text>
+                  <image class="icon" href="img/transactions/star.svg" width="32" height="32" x="0" y="0" />
+                  <text class="text" y="40" font-size="32">
+                    <textPath startoffset="700" href=#wavePath>
+                      HIGH COMISSIONS!
+                    </textPath>
+                  </text>
+                  <image class="icon" href="img/transactions/star.svg" width="32" height="32" x="0" y="0" />
+                  <text class="text" y="40" font-size="32">
+                    <textPath startoffset="250" href=#wavePath>
+                      HIGH COMISSIONS!
+                    </textPath>
+                  </text>
+                  <image class="icon" href="img/transactions/star.svg" width="32" height="32" x="0" y="0" />
+                </svg>
             </div>
         </section>
 
@@ -585,7 +391,6 @@
                     <a class="features__btn btn" href="https://afflex.partner.alanbase.com/login">Start earning today</a>
                 </div>
             </div>
-            <!-- </div> -->
         </section>
 
         <section class="start" id="start">
